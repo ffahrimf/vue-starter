@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
-import { useRemoveStorage } from "../../composable/use-helper";
-import { mainStore } from "../../store";
+import { useRemoveStorage } from "../composable/use-helper";
+import { mainStore } from "../store";
 const router = useRouter();
 
 const store = mainStore();

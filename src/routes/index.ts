@@ -5,17 +5,13 @@ import {
   RouteLocationNormalized,
   NavigationGuardNext
 } from "vue-router";
-import landingRoutes from "./landing/index";
+
 import dashboardRoutes from "./dashboard";
 import authRoutes from "./auth";
 import { mainStore } from "../store";
 import { updateMetaTags } from "./meta";
 
-const routes: Array<RouteRecordRaw> = [
-  ...landingRoutes,
-  ...dashboardRoutes,
-  ...authRoutes
-];
+const routes: Array<RouteRecordRaw> = [...dashboardRoutes, ...authRoutes];
 
 const router = createRouter({
   history: createWebHistory(),

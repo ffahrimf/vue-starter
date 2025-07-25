@@ -2,9 +2,9 @@ import { RouteRecordRaw } from "vue-router";
 
 const dashboardRoutes: Array<RouteRecordRaw> = [
   {
-    path: "/dashboard",
+    path: "/",
     name: "in-app",
-    component: () => import("../../views/dashboard/index.vue"),
+    component: () => import("../../views/home.vue"),
     meta: {
       requiresAuth: true,
       title: "Dashboard",
