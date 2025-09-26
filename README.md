@@ -15,3 +15,19 @@ Follow the steps below to set up and run the project locally.
 ```bash
 git clone https://github.com/username/repository-name.git
 cd repository-name
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Run Development Server
+```bash
+npm run dev:local
+```
+
+### 4. Build for Production
+```bash
+npm run build
+```
