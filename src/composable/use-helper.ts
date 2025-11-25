@@ -9,11 +9,13 @@ import day from "../plugins/day";
 import { toast } from "../components/toast/use-toast";
 import Cookies from "js-cookie";
 
+const CLIENT_OBFUSCATION_KEY = "H4sH-N0t-s3Rv3r-S3cr3T-k3Y";
+
 export const useEncrypt = (plaintext: string): EncryptedData | null => {
   if (!plaintext) {
     return null;
   }
-  const secretKey = import.meta.env.VITE_APP_SCREET_KEY as string; // Menambahkan tipe eksplisit 'string'
+  const secretKey = CLIENT_OBFUSCATION_KEY;
   const iv = CryptoES.lib.WordArray.random(16); // Generate a random IV
   const encrypted = CryptoES.AES.encrypt(plaintext, secretKey, { iv: iv });
   return { iv: iv.toString(), ciphertext: encrypted.toString() };
@@ -26,7 +28,7 @@ export const useDecrypt = (data: string | null | undefined): string | null => {
   const encrypted: EncryptedData = JSON.parse(data);
   const ciphertext = encrypted.ciphertext;
   const iv = encrypted.iv;
-  const secretKey = import.meta.env.VITE_APP_SCREET_KEY as string; // Menambahkan tipe eksplisit 'string'
+  const secretKey = CLIENT_OBFUSCATION_KEY;
   const decrypted = CryptoES.AES.decrypt(ciphertext, secretKey, {
     iv: CryptoES.enc.Hex.parse(iv)
   });
@@ -129,7 +131,7 @@ export const useRemoveStorage = () => {
   if (token) {
     Cookies.remove("hAS-aTH");
     Cookies.remove("glbl-unq-hr");
-    Cookies.remove("as-starter");
+    Cookies.remove("as-ereproct");
     Cookies.remove("id_profile");
     localStorage.clear();
   }
